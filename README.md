@@ -3,8 +3,7 @@ dujar
 
 > My first ever Kotlin thingie, yay! 🥳
 
-So this is basically `du` for `.jar` files - it enables you to peak at a jar file
-and see the sizes of the classes in the file.
+Basically `du` for .jar files - peak inside a jar file and see the sizes of the resources in the jar 
 
 It is still early days and I'd like it to get it to work something like [goweight](https://github.com/jondot/goweight) with the JSON output and all. 
 
@@ -28,6 +27,7 @@ $ java -jar dujar.jar zefaker-all.jar
 507.2 KiB       org/apache/poi/xssf/usermodel/presetTableStyles.xml 
 504.7 KiB       org/apache/groovy/util/Maps.class
 356.2 KiB       nl.yml
+...TRUNCATED...
 ```
 
 ## Building
