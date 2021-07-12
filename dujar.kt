@@ -14,6 +14,12 @@ fun humanize(bytes: Long) = when {
     else -> "%.1f EiB".format((bytes shr 20).toDouble() / (0x1 shl 40))
 }
 
+fun normalizeClass(name: String): String {
+    if (name.endsWith(".class")) 
+        return name.replace('/', '.').substring(0, name.length - 6)
+    return name 
+}
+
 fun main(args: Array<String>) {
     val file = File(args[0])
     var entries = mutableListOf<JarEntry>()
@@ -21,6 +27,6 @@ fun main(args: Array<String>) {
     JarFile(file).stream().forEach { it -> entries.add(it) }
 
     entries.sortedByDescending({ it -> it.getSize() }).forEach { entry -> 
-        println("${humanize(entry.getSize())}\t${entry.getName()}")
+        println("${humanize(entry.getSize())}\t${normalizeClass(entry.getName())}")
     }
 }
