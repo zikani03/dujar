@@ -15,9 +15,10 @@ fun humanize(bytes: Long) = when {
 }
 
 fun normalizeClass(name: String): String {
-    if (name.endsWith(".class")) 
-        return name.replace('/', '.').substring(0, name.length - 6)
-    return name 
+    var finalName = name
+    if (name.endsWith(".class"))
+        finalName = name.substring(0, name.length - 6)
+    return finalName.replace('$', '/').replace('/', '.')
 }
 
 fun main(args: Array<String>) {
